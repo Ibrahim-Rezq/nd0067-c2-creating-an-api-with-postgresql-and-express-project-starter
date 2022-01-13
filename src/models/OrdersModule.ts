@@ -45,6 +45,9 @@ export class OrdersStore {
       const sql =
         'INSERT INTO orders (amount,state,product_id,user_id) VALUES($1, $2, $3, $4) RETURNING *'
       const conn = await Client.connect()
+      const sql2 =
+        'INSERT INTO order_products (order_id,product_id) VALUES($1, $2) RETURNING *'
+      const conn2 = await Client.connect()
 
       const result = await conn.query(sql, [
         o.amount,
@@ -52,9 +55,13 @@ export class OrdersStore {
         o.product_id,
         o.user_id,
       ])
-
+      
       const order = result.rows[0]
-
+      
+      const result2 = await conn.query(sql, [
+        order.id,
+        order.product_id
+      ])
       conn.release()
 
       return order

@@ -1,4 +1,3 @@
-import { Pool } from 'pg'
 import Client from '../database'
 
 export type Product = {

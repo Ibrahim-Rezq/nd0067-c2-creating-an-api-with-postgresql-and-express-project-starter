@@ -5,11 +5,11 @@
   "main": "server.ts",
   "scripts": {
     "start-dev": " nodemon dist/server.js",
-    "start": "npm run build && npm run start",
+    "start": "npm run build && node ./dist/server",
     "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess 'node ./dist/server.js'",
     "jasmine": "jasmine-ts",
     "build": "tsc",
-    "test": " db-migrate test up && jasmine-ts && db-migrate db:drop test",
+    "test": "ENV=dev db-migrate --env test up && jasmine-ts && db-migrate db:drop test",
     "up": "db-migrate up",
     "down": "db-migrate down *"
   },
