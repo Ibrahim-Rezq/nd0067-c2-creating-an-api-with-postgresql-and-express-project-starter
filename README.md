@@ -22,28 +22,28 @@ creation command :CREATE DATABASE storefront
 
 #### users
 
-| Endpoints        | Requstes | pramters                                   | Req Tokn |
-| ---------------- | :------: | ------------------------------------------ | :------: |
-| **/Users **      | **GET**  | **N/A**                                    | **N/A**  |
-| **/Users/:id **  | **GET**  | **ID**                                     | **N/A**  |
-| **/Users **      | **POST** | **firstname ,lastname,username ,password** | **N/A**  |
-| **/Users/login** | **POST** | **username,password**                      | **YES**  |
+| Endpoints        | Requstes | pramters                                      | Req Tokn |
+| ---------------- | :------: | --------------------------------------------- | :------: |
+| **/Users**       | **GET**  | **N/A**                                       | **N/A**  |
+| **/Users/:id**   | **GET**  | **ID**                                        | **N/A**  |
+| **/Users**       | **POST** | **id,firstname ,lastname,username ,password** | **N/A**  |
+| **/Users/login** | **POST** | **username,password**                         | **YES**  |
 
 #### Orders
 
-| Endpoints        | Requstes | pramters                                   | Req Tokn |
-| ---------------- | :------: | ------------------------------------------ | :------: |
-| **/Orders **     | **GET**  | **N/A**                                    | **N/A**  |
-| **/Orders/:id ** | **GET**  | **ID**                                     | **N/A**  |
-| **/Orders **     | **POST** | **firstname ,lastname,username ,password** | **N/A**  |
+| Endpoints       | Requstes | pramters                         | Req Tokn |
+| --------------- | :------: | -------------------------------- | :------: |
+| **/Orders**     | **GET**  | **N/A**                          | **N/A**  |
+| **/Orders/:id** | **GET**  | **ID**                           | **N/A**  |
+| **/Orders**     | **POST** | **id,amount, state ,product_id** | **N/A**  |
 
 #### Products
 
-| Endpoints          | Requstes | pramters                                   | Req Tokn |
-| ------------------ | :------: | ------------------------------------------ | :------: |
-| **/Products **     | **GET**  | **N/A**                                    | **N/A**  |
-| **/Products/:id ** | **GET**  | **ID**                                     | **N/A**  |
-| **/Products **     | **POST** | **firstname ,lastname,username ,password** | **N/A**  |
+| Endpoints         | Requstes | pramters          | Req Tokn |
+| ----------------- | :------: | ----------------- | :------: |
+| **/Products**     | **GET**  | **N/A**           | **N/A**  |
+| **/Products/:id** | **GET**  | **ID**            | **N/A**  |
+| **/Products**     | **POST** | **id,name,price** | **N/A**  |
 
 ### Schema
 
