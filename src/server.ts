@@ -22,8 +22,3 @@ app.get('/', function (req: Request, res: Response) {
 app.listen(3000, function () {
   console.log(`starting app on: ${address}`)
 })
-
-// const hash = bcrypt.hashSync(
-//         u.password + pepper,
-//         parseInt(saltRounds)
-//       );
