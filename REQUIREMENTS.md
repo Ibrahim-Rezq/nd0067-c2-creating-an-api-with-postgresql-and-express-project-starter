@@ -8,28 +8,28 @@ These are the notes from a meeting with the frontend developer that describe wha
 
 #### Products
 
-| Endpoints         | Requstes | pramters          | Req Tokn |
-| ----------------- | :------: | ----------------- | :------: |
-| **/Products**     | **GET**  | **N/A**           | **N/A**  |
-| **/Products/:id** | **GET**  | **ID**            | **N/A**  |
-| **/Products**     | **POST** | **id,name,price** | **N/A**  |
+| Endpoints         | Requstes | pramters          | Require Token |
+| ----------------- | :------: | ----------------- | :-----------: |
+| **/Products**     | **GET**  | **N/A**           |    **N/A**    |
+| **/Products/:id** | **GET**  | **ID**            |    **N/A**    |
+| **/Products**     | **POST** | **id,name,price** |    **YES**    |
 
 #### Users
 
-| Endpoints        | Requstes | pramters                                      | Req Tokn |
-| ---------------- | :------: | --------------------------------------------- | :------: |
-| **/Users**       | **GET**  | **N/A**                                       | **N/A**  |
-| **/Users/:id**   | **GET**  | **ID**                                        | **N/A**  |
-| **/Users**       | **POST** | **id,firstname ,lastname,username ,password** | **N/A**  |
-| **/Users/login** | **POST** | **username,password**                         | **YES**  |
+| Endpoints        | Requstes | pramters                                      | Require Token |
+| ---------------- | :------: | --------------------------------------------- | :-----------: |
+| **/Users**       | **GET**  | **N/A**                                       |    **N/A**    |
+| **/Users/:id**   | **GET**  | **ID**                                        |    **N/A**    |
+| **/Users**       | **POST** | **id,firstname ,lastname,username ,password** |    **N/A**    |
+| **/Users/login** | **POST** | **username,password**                         |    **YES**    |
 
 #### Orders
 
-| Endpoints       | Requstes | pramters                      | Req Tokn |
-| --------------- | :------: | ----------------------------- | :------: |
-| **/Orders**     | **GET**  | **N/A**                       | **N/A**  |
-| **/Orders/:id** | **GET**  | **ID**                        | **N/A**  |
-| **/Orders**     | **POST** | **id,amount, state ,user_id** | **N/A**  |
+| Endpoints       | Requstes | pramters                      | Require Token |
+| --------------- | :------: | ----------------------------- | :-----------: |
+| **/Orders**     | **GET**  | **N/A**                       |    **N/A**    |
+| **/Orders/:id** | **GET**  | **ID**                        |    **N/A**    |
+| **/Orders**     | **POST** | **id,amount, state ,user_id** |    **YES**    |
 
 ## Data Shapes
 
@@ -74,3 +74,17 @@ Indexes:
 Foreign-key constraints:
 "product_id" FOREIGN KEY (id) REFERENCES products(id)
 "user_id" FOREIGN KEY (id) REFERENCES users(id)
+
+#### Order_products
+
+| Column | Type    | Collation | Nullable | Default                                    |
+| ------ | ------- | --------- | -------- | ------------------------------------------ |
+| id     | integer |           | not null | nextval('order_products_id_seq'::regclass) |
+
+Indexes:
+"order_products_pkey" PRIMARY KEY, btree (id)
+Foreign-key constraints:
+"order_id" FOREIGN KEY (id) REFERENCES orders(id)
+"product_id" FOREIGN KEY (id) REFERENCES products(id)
+
+     <!-- "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess 'node ./dist/server.js'", -->

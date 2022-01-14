@@ -2,12 +2,10 @@ import express, { Request, Response } from 'express'
 import jwt, { Secret } from 'jsonwebtoken'
 
 //@ts-ignore
-export default (protect) => async (req: Request, res: Response, next) => {
+const protect= async (req: Request, res: Response, next) => {
   try {
-    // const authorizationHeader = req.headers.authorization
-    const authorizationHeader = req.body.token
+    const token = req.body.token
     //@ts-ignore
-    const token = authorizationHeader.split(' ')[1]
     jwt.verify(token, process.env.TOKEN_SECRET as Secret)
     next()
   } catch (err) {
@@ -16,3 +14,4 @@ export default (protect) => async (req: Request, res: Response, next) => {
     return
   }
 }
+export default protect;

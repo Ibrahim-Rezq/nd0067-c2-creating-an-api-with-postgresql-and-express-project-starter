@@ -13,7 +13,6 @@ const {
 
 let client
 
-console.log(ENV)
 if (ENV === 'build') {
   client = new Pool({
   host: POSTGRES_HOST,

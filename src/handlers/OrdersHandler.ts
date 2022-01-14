@@ -1,4 +1,5 @@
 import express, { Request, Response } from 'express'
+import protect from '../Middlewares/protect'
 import { Order, OrdersStore } from '../models/OrdersModule'
 
 const store = new OrdersStore()
@@ -35,7 +36,7 @@ const create = async (req: Request, res: Response) => {
 const OrderRoutes = (app: express.Application) => {
   app.get('/Orders', index)
   app.get('/Orders/:id', show)
-  app.post('/Orders', create)
+  app.post('/Orders',protect, create)
 }
 
 export default OrderRoutes
