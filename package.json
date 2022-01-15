@@ -9,7 +9,7 @@
     "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess 'node ./dist/server.js'",
     "jasmine": "jasmine-ts",
     "build": "tsc",
-    "test": "ENV=dev db-migrate --env test up && jasmine-ts && db-migrate db:drop test",
+    "test": "tsc && set ENV=dev && db-migrate --env test up && jasmine-ts && db-migrate --env test reset",
     "up": "db-migrate up",
     "down": "db-migrate down *"
   },

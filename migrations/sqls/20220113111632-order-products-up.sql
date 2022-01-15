@@ -1,3 +1,6 @@
-CREATE TABLE order_products (id SERIAL PRIMARY KEY);
-ALTER TABLE order_products ADD CONSTRAINT product_id FOREIGN KEY (id) REFERENCES products(id) ;
-ALTER TABLE order_products ADD CONSTRAINT order_id FOREIGN KEY (id) REFERENCES orders(id) ;
+CREATE TABLE order_products (id SERIAL PRIMARY KEY,amount int);
+ALTER TABLE order_products ADD COLUMN order_id INT NOT NULL ;
+ALTER TABLE order_products ADD FOREIGN KEY (order_id) REFERENCES orders(id);
+ALTER TABLE order_products ADD COLUMN product_id INT NOT NULL ;
+ALTER TABLE order_products ADD FOREIGN KEY (product_id) REFERENCES products(id);
+

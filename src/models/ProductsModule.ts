@@ -22,7 +22,7 @@ export class ProductStore {
     }
   }
 
-  async show(id: string): Promise<Product> {
+  async show(id: number): Promise<Product> {
     try {
       const sql = 'SELECT * FROM products WHERE id=($1)'
       // @ts-ignore
@@ -50,7 +50,7 @@ export class ProductStore {
 
       return product
     } catch (err) {
-      throw new Error(`Could not add new Product ${name}. Error: ${err}`)
+      throw new Error(`Could not add new Product ${p.name}. Error: ${err}`)
     }
   }
 }

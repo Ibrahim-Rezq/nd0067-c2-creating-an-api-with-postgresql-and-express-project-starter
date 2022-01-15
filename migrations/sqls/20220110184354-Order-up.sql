@@ -1,3 +1,3 @@
-CREATE TABLE orders (id SERIAL PRIMARY KEY,amount int, state bool);
-ALTER TABLE orders ADD CONSTRAINT product_id FOREIGN KEY (id) REFERENCES products(id) ;
-ALTER TABLE orders ADD CONSTRAINT user_id FOREIGN KEY (id) REFERENCES users(id) ;
+CREATE TABLE orders (id SERIAL PRIMARY KEY, state bool);
+ALTER TABLE orders ADD COLUMN user_id INT NOT NULL ;
+ALTER TABLE orders ADD FOREIGN KEY (user_id) REFERENCES users(id);

@@ -66,25 +66,24 @@ TABLE "orders" CONSTRAINT "user_id" FOREIGN KEY (id) REFERENCES users(id)
 | Column | Type    | Collation | Nullable | Default                            |
 | ------ | ------- | --------- | -------- | ---------------------------------- |
 | id     | integer |           | not null | nextval('orders_id_seq'::regclass) |
-| amount | integer |           |          |
 | state  | boolean |           |          |
 
 Indexes:
 "orders_pkey" PRIMARY KEY, btree (id)
 Foreign-key constraints:
-"product_id" FOREIGN KEY (id) REFERENCES products(id)
 "user_id" FOREIGN KEY (id) REFERENCES users(id)
+Referenced by:
+TABLE "order_products" CONSTRAINT "order_id" FOREIGN KEY (id) REFERENCES orders(id)
 
 #### Order_products
 
 | Column | Type    | Collation | Nullable | Default                                    |
 | ------ | ------- | --------- | -------- | ------------------------------------------ |
 | id     | integer |           | not null | nextval('order_products_id_seq'::regclass) |
+| amount | integer |           |          |
 
 Indexes:
 "order_products_pkey" PRIMARY KEY, btree (id)
 Foreign-key constraints:
 "order_id" FOREIGN KEY (id) REFERENCES orders(id)
 "product_id" FOREIGN KEY (id) REFERENCES products(id)
-
-     <!-- "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess 'node ./dist/server.js'", -->

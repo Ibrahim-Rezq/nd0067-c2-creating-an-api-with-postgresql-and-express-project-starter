@@ -15,11 +15,11 @@ let client
 
 if (ENV === 'build') {
   client = new Pool({
-  host: POSTGRES_HOST,
-  database: POSTGRES_DB,
-  user: POSTGRES_USER,
-  password: POSTGRES_PASSWORD,
-})
+    host: POSTGRES_HOST,
+    database: POSTGRES_DB,
+    user: POSTGRES_USER,
+    password: POSTGRES_PASSWORD,
+  })
 }
 
 if (ENV === 'dev') {
@@ -30,5 +30,5 @@ if (ENV === 'dev') {
     password: POSTGRES_PASSWORD,
   })
 }
-
+//@ts-ignore
 export default client as Pool
