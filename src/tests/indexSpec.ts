@@ -206,7 +206,6 @@ describe('Test endpoint responses for orders', () => {
       )
       it('POST /Users Works', async () => {
         const response = await request.post('/Users')
-        .auth((token as string), { type: 'bearer' })
         .send(JSON.stringify(testUser))
         .expect('Content-Type', /json/)
         .expect(200)      
