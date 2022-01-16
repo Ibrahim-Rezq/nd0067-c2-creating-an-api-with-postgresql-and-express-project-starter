@@ -10,6 +10,7 @@
     "jasmine": "jasmine-ts",
     "build": "tsc",
     "test": "tsc && set ENV=dev && db-migrate --env test up && jasmine-ts && db-migrate --env test reset",
+    "test-fix": "tsc && db-migrate --env test up && jasmine-ts && db-migrate --env test reset",
     "up": "db-migrate up",
     "down": "db-migrate down *"
   },
