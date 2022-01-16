@@ -30,7 +30,7 @@ npm run test may break with os change to fix this use this script instead **npm 
 
 ## .env variables:
 
-### this was a recommendation by a reviewer
+### This was a recommendation by a reviewer
 
 POSTGRES_HOST=127.0.0.1
 POSTGRES_DB=storefront
