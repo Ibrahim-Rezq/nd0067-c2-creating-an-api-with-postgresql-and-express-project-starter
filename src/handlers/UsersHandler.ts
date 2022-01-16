@@ -64,7 +64,7 @@ const login = async (req: Request, res: Response) => {
 const UserRoutes = (app: express.Application) => {
   app.get('/Users',protect, index)
   app.get('/Users/:id',protect, show)
-  app.post('/Users',protect, create)
+  app.post('/Users', create)
   app.post('/Users/login', protect, login)
 }
 

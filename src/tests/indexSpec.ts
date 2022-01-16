@@ -198,14 +198,14 @@ describe('Test endpoint responses for orders', () => {
       }
       )
       it('GET /Users/:id Works', async () => {
-        const response = await request.get('/Users')
+        const response = await request.get('/Users/1')
         .auth((token as string), { type: 'bearer' })
         .expect('Content-Type', /json/)
         .expect(200)      
       }
       )
       it('POST /Users Works', async () => {
-        const response = await request.get('/Users')
+        const response = await request.post('/Users')
         .auth((token as string), { type: 'bearer' })
         .send(JSON.stringify(testUser))
         .expect('Content-Type', /json/)
