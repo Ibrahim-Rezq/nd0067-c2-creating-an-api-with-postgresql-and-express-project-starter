@@ -23,9 +23,7 @@ describe('Product Model', () => {
   
   it('index method Works', async() => {
     const result=await productStore.index()
-    Object.keys(testProduct).map(key => {
-   expect(result[0].hasOwnProperty(key)).toBe(true)
-    })
+    expect(result).toBeDefined()
   })
   
   it('should have an show method', () => {
