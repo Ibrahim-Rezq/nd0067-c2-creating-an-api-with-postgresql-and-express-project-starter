@@ -18,7 +18,7 @@ catch (err) {
 
 const show = async (req: Request, res: Response) => {
  try{
-   const User = await store.show(Number(req.body.id))
+   const User = await store.show(Number(req.params.id))
    res.json(User)
  }
  catch (err) {

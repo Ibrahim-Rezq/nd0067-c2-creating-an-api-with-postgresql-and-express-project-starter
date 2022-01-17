@@ -16,7 +16,7 @@ const index = async (_req: Request, res: Response) => {
 
 const show = async (req: Request, res: Response) => {
   try {
-    const Product = await store.show(req.body.id);
+    const Product = await store.show(Number(req.params.id));
     res.json(Product);
   } catch (err) {
     res.status(400);
